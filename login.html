@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+function login() {
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    console.log(email);
+    $.post("https://harenhall-api.herokuapp.com/api/sessions",
+        {
+          email: email,
+          password: password
+        },
+        function(data,status){
+            alert(data);
+        });
+}
+</script>
+</head>
+<body>
+
+<form name="myForm" onsubmit="return login()" method="post" return false>
+  Email: <input type="text" name="email" id="email">
+  Password: <input type="password" name="password" id="password">
+  <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
+
